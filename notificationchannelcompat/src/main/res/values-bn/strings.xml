@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2017 The Android Open Source Project
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	   http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+	6/25/2019 Extracted by Lionscribe for use in Compat
+-->
+
+<resources>
+    <string name="app_notifications_switch_label">"বিজ্ঞপ্তিগুলি প্রদর্শন করুন"</string>
+    <string name="notification_importance_title">"আচরণ"</string>
+    <string name="notification_importance_blocked">"কখনোই বিজ্ঞপ্তগুলি দেখায় না"</string>
+    <string name="notification_importance_min">"নিঃশব্দে দেখুন এবং ছোট করুন"</string>
+    <string name="notification_importance_low">"নিঃশব্দে দেখান"</string>
+    <string name="notification_importance_default">"শব্দ করে"</string>
+    <string name="notification_importance_high">"সাউন্ড হবে ও স্ক্রিনে ভেসে উঠবে"</string>
+    <string name="notification_channels_other">"অন্যান্য"</string>
+    <string name="app_notification_importance_title">"গুরুত্ব"</string>
+    <string name="notification_show_lights_title">"মিটমিট করা আলো"</string>
+    <string name="notification_vibrate_title">"ভাইব্রেট"</string>
+    <string name="notification_channel_sound_title">"সাউন্ড"</string>
+    <string name="write_settings">"সিস্টেম সেটিংস সংশোধন করুন"</string>
+
+</resources>

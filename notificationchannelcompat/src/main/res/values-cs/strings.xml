@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2017 The Android Open Source Project
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	   http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+	6/25/2019 Extracted by Lionscribe for use in Compat
+-->
+
+<resources>
+    <string name="app_notifications_switch_label">"Zobrazovat oznámení"</string>
+    <string name="notification_importance_title">"Chování"</string>
+    <string name="notification_importance_blocked">"Oznámení nikdy nezobrazovat"</string>
+    <string name="notification_importance_min">"Zobrazit tiše a minimalizovat"</string>
+    <string name="notification_importance_low">"Zobrazovat tiše"</string>
+    <string name="notification_importance_default">"Vydat zvukový signál"</string>
+    <string name="notification_importance_high">"Vydat zvukový signál a vyskočit na obrazovku"</string>
+    <string name="notification_channels_other">"Jiné"</string>
+    <string name="app_notification_importance_title">"Důležitost"</string>
+    <string name="notification_show_lights_title">"Blikání kontrolky"</string>
+    <string name="notification_vibrate_title">"Vibrace"</string>
+    <string name="notification_channel_sound_title">"Zvuk"</string>
+    <string name="write_settings">"Změny nastavení systému"</string>
+
+</resources>

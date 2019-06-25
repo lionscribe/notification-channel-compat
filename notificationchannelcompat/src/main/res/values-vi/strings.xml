@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2017 The Android Open Source Project
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	   http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+	6/25/2019 Extracted by Lionscribe for use in Compat
+-->
+
+<resources>
+    <string name="app_notifications_switch_label">"Hiển thị thông báo"</string>
+    <string name="notification_importance_title">"Hành vi"</string>
+    <string name="notification_importance_blocked">"Không bao giờ hiển thị thông báo"</string>
+    <string name="notification_importance_min">"Hiển thị mà không phát âm báo và thu nhỏ"</string>
+    <string name="notification_importance_low">"Hiển thị mà không phát âm báo"</string>
+    <string name="notification_importance_default">"Phát âm báo"</string>
+    <string name="notification_importance_high">"Phát âm báo và hiển thị trên màn hình"</string>
+    <string name="notification_channels_other">"Khác"</string>
+    <string name="app_notification_importance_title">"Mức độ quan trọng"</string>
+    <string name="notification_show_lights_title">"Đèn nhấp nháy"</string>
+    <string name="notification_vibrate_title">"Rung"</string>
+    <string name="notification_channel_sound_title">"Âm báo"</string>
+    <string name="write_settings">"Sửa đổi cài đặt hệ thống"</string>
+
+</resources>

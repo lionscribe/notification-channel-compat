@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2017 The Android Open Source Project
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	   http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+	6/25/2019 Extracted by Lionscribe for use in Compat
+-->
+
+<resources>
+    <string name="app_notifications_switch_label">"Mostra notifiche"</string>
+    <string name="notification_importance_title">"Comportamento"</string>
+    <string name="notification_importance_blocked">"Non mostrare mai notifiche"</string>
+    <string name="notification_importance_min">"Mostra in modalità silenziosa e riduci a icona"</string>
+    <string name="notification_importance_low">"Mostra silenziosamente"</string>
+    <string name="notification_importance_default">"Con suoneria"</string>
+    <string name="notification_importance_high">"Suoneria e visualizzazione sullo schermo"</string>
+    <string name="notification_channels_other">"Altro"</string>
+    <string name="app_notification_importance_title">"Importanza"</string>
+    <string name="notification_show_lights_title">"Luce lampeggiante"</string>
+    <string name="notification_vibrate_title">"Vibrazione"</string>
+    <string name="notification_channel_sound_title">"Suono"</string>
+    <string name="write_settings">"Modifica impostazioni sistema"</string>
+
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2017 The Android Open Source Project
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	   http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+	6/25/2019 Extracted by Lionscribe for use in Compat
+-->
+
+<resources>
+    <string name="app_notifications_switch_label">"Prikazuj obaveštenja"</string>
+    <string name="notification_importance_title">"Ponašanje"</string>
+    <string name="notification_importance_blocked">"Nikada ne prikazuj obaveštenja"</string>
+    <string name="notification_importance_min">"Prikazuj bez zvučnog signala i umanji"</string>
+    <string name="notification_importance_low">"Prikazuje se bez zvučnog signala"</string>
+    <string name="notification_importance_default">"Emituje se zvučni signal"</string>
+    <string name="notification_importance_high">"Emituje se zvučni signal i prikazuje se na ekranu"</string>
+    <string name="notification_channels_other">"Drugo"</string>
+    <string name="app_notification_importance_title">"Važnost"</string>
+    <string name="notification_show_lights_title">"Uključi treperenje lampice"</string>
+    <string name="notification_vibrate_title">"Vibracija"</string>
+    <string name="notification_channel_sound_title">"Zvuk"</string>
+    <string name="write_settings">"Menjanje podešavanja sistema"</string>
+
+</resources>

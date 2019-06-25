@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2017 The Android Open Source Project
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	   http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+
+	6/25/2019 Extracted by Lionscribe for use in Compat
+-->
+
+<resources>
+    <string name="app_notifications_switch_label">"알림 표시"</string>
+    <string name="notification_importance_title">"동작"</string>
+    <string name="notification_importance_blocked">"알림 표시 안함"</string>
+    <string name="notification_importance_min">"조용히 표시하고 최소화"</string>
+    <string name="notification_importance_low">"조용히 표시"</string>
+    <string name="notification_importance_default">"소리로 알림"</string>
+    <string name="notification_importance_high">"소리 및 화면 표시로 알림"</string>
+    <string name="notification_channels_other">"기타"</string>
+    <string name="app_notification_importance_title">"중요도"</string>
+    <string name="notification_show_lights_title">"표시등이 깜박거림"</string>
+    <string name="notification_vibrate_title">"진동"</string>
+    <string name="notification_channel_sound_title">"소리"</string>
+    <string name="write_settings">"시스템 설정 수정"</string>
+
+</resources>
