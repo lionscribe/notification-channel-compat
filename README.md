@@ -1,28 +1,35 @@
 
 # notification-channel-compat
 
-notification-channel-compat adds Notification Channels Ability to Pre-Oreo Android Devices
+notification-channel-compat adds Notification Channels support to Pre-Oreo Android Devices
 
-*This is a preliminary write up*
+Starting in Android 8.0 (API level 26), all notifications must be assigned to a channel. For each channel, you can set the visual and auditory behavior that is applied to all notifications in that channel. Then, users can change these settings and decide which notification channels from your app should be intrusive or visible at all. You can read more about Notification Channels at https://developer.android.com/training/notify-user/channels
 
-As you know, starting in Android 8.0 (API level 26), all notifications must be assigned to a channel. For each channel, you can set the visual and auditory behavior that is applied to all notifications in that channel. Then, users can change these settings and decide which notification channels from your app should be intrusive or visible at all.
-This is for the good and the bad. The bad; that the user has full control of the notifications settings, and developer cannot override them. The good; that this freed developer of adding notification preferences, and easily allowed multiple preferences for multiple channels. You can read more about Notification Channels at https://developer.android.com/training/notify-user/channels
+This is for the good and the bad. The bad; the user now has full control of the notifications settings, and developer cannot override them. The good; this freed developer of adding notification preferences, and easily allowed multiple preferences for multiple channels.
 
-As more and more users are upgrading to Android 8.0 developers have design their apps around the channels requirement. But, as most developers are still supporting pre 8.0 devices, they still have to add preferences and logic to control the notifications.
+As more and more users are upgrading to Android 8.0 developers have designed their apps around the channels requirement, and have started using it for their benefit. But as most developers are still supporting pre-8.0 devices, they also have to add preferences and logic to control the notifications for the older devices.
 
-This is where notification-channel-compat appears. You use the same coding as for the Android 8.0 channel classes, with minimal change, to support channels in all devices. In Android 8.0 and later, it uses the built-in channel classes, and in pre Android 8.0 it mimics it.
+This is where notification-channel-compat appears. You use the same coding as for the Android 8.0 channel classes, with minimal change, to support channels in all devices. In Android 8.0 and later, it uses the built-in channel classes, and in pre- Android 8.0, it mimics them.
 
+The following Screenshots are from an Android 7.0 device. As you can see, it mimics the system channel settings.
+
+| [Example Main][ExampleMain] | [Example Menu][ExampleMenu] | [Channel All][ChannelAll] | [Channel Single][ChannelSingle]
+|:-:|:-:|:-:|:-:|
+| ![ExampleMain] | ![ExampleMenu] | ![ChannelAll] | ![ChannelSingle] |
 
 ## Usage
 ### Step 1:
 #### Add gradle dependecy
 ```
 dependencies {
-   compile 'com.lionscribe.open:notification-channel-compat:1.0.+'
+       implementation 'com.lionscribe.open:notification-channel-compat:1.0.1'
 }
 ```
 ### Step 2:
-#### Use the NotificationChannelGroupCompat, NotificationChannelCompat and NotificationChannelManagerHelper when creating the channels
+#### Use the following compat classes:
+>**NotificationChannelCompat** in place of  *NotificationChannel*
+>**NotificationChannelGroupCompat** in place of *NotificationChannelGroup*
+> and use **NotificationChannelManagerHelper** to create the Channels and Groups, as follows;
 ```java
 NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 NotificationChannelManagerHelper notificationManagerHelper = new NotificationChannelManagerHelper(this, notificationManager);
@@ -39,7 +46,7 @@ channel.setGroup("group_home");
 // Register the channel with the system; you can't change the importance or other notification behaviors after this  
 notificationManagerHelper.createNotificationChannel(channel);
 ```
-This should preferably be done in the *onCreate* function, so that channels are available to be shown in preferences.
+This should preferably be done in the *onCreate* function, so that channels are available right away to be shown in the preferences.
 
 ### Step 3:
 #### Add the channels preference to you menu. This way users can easily edit their channels. In Android 8.0 and later, this menu will take them to the System Channel preferences. In older devices, it will create its own menu to mimic the System settings. The following is an example that adds 2 preferences, one that takes user to main channels settings, and one that takes them to a specific channel's settings.
@@ -64,19 +71,22 @@ This should preferably be done in the *onCreate* function, so that channels are 
   
 </PreferenceScreen>
 ```
-Alternatively, you can directly open the preferences, with a call to the static function *NotificationChannelPreference.launchSettings(context, channelId);*
+Alternatively, you can directly open the preferences, with a call to the static function *NotificationChannelPreference.launchSettings(context, null);* or *NotificationChannelPreference.launchSettings(context, channelId);*
 
 ### Step 4:
 
-#### When showing a notification, just create it as usual, and add a single line of code, *if (NotificationChannelCompat.applyChannel()*, as follows;
+#### When showing a notification, just create it as usual, and add a single line of code, 
+>*if (NotificationChannelCompat.applyChannel(context, notification,  channel_id)*
+
+#### and only show the notification if it returns 'true', as follows;
 ```java
-Notification notification = new NotificationCompat.Builder(context, "group_1")  
+Notification notification = new NotificationCompat.Builder(context, "channel_one_home")  
         .setSmallIcon(R.drawable.ic_notifications_active_black_24dp)  
         .setContentTitle("Title")  
         .setContentText("Text")  
         .build();  
   
-if (NotificationChannelCompat.applyChannel(context, notification, "group_1")) {  
+if (NotificationChannelCompat.applyChannel(context, notification, "channel_one_home")) {  
     NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);  
     notificationManager.notify(index, notification);  
 }
@@ -85,12 +95,21 @@ You must add the **if** statement, otherwise the Channels will not work.
 
 #### That's it, you now have working channels for all SDK 14+ devices.
 
+## Getting Help
+
+To report a specific problem or feature request, [open a new issue on Github](https://github.com/lionscribe/notification-channel-compat/issues/new).
+
 ## Authors
 
 * **Lionscribe** - *Initial work* - [Lionscribe](https://github.com/lionscribe)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/lionscribe/notification-channel-compat/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
+
+[ExampleMain]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_example_main.png>
+[ExampleMenu]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_example_menu.png>
+[ChannelAll]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_channel_all.png>
+[ChannelSingle]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_channel_single.png>

@@ -22,7 +22,7 @@
     <string name="settings_direct">Settings Direct</string>
     <string name="channel_direct">Channel Direct</string>
     <string name="notify">Notify</string>
-    <string name="test_switch">Test Switch</string>
+    <string name="example_switch">Example Switch</string>
     <string name="channel_all_summary">Change your notification channel settings</string>
     <string name="channel_all_title">All Channel Settings</string>
     <string name="channel_single_summary">Change your Channel One Home settings</string>

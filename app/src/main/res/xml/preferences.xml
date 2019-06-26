@@ -18,8 +18,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <SwitchPreferenceCompat
-        app:key="test"
-        app:title="@string/test_switch"/>
+        app:key="example"
+        app:title="@string/example_switch"/>
 
     <com.lionscribe.open.notificationchannelcompat.NotificationChannelPreference
         app:key="channel_settings"
