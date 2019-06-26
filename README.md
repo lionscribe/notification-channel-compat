@@ -1,15 +1,16 @@
 
+
 # notification-channel-compat
 
-notification-channel-compat adds Notification Channels support to Pre-Oreo Android Devices
+**notification-channel-compat** adds Notification Channel support to pre-Oreo Android devices
 
 Starting in Android 8.0 (API level 26), all notifications must be assigned to a channel. For each channel, you can set the visual and auditory behavior that is applied to all notifications in that channel. Then, users can change these settings and decide which notification channels from your app should be intrusive or visible at all. You can read more about Notification Channels at https://developer.android.com/training/notify-user/channels
 
-This is for the good and the bad. The bad; the user now has full control of the notifications settings, and developer cannot override them. The good; this freed developer of adding notification preferences, and easily allowed multiple preferences for multiple channels.
+This is for the good and the bad. The bad; the user now has full control of the notifications settings, and developer cannot override them. The good; it frees developer of dealing with notification preferences, and easily allows multiple preferences for multiple channels.
 
-As more and more users are upgrading to Android 8.0 developers have designed their apps around the channels requirement, and have started using it for their benefit. But as most developers are still supporting pre-8.0 devices, they also have to add preferences and logic to control the notifications for the older devices.
+As more and more users are upgrading to Android 8.0, developers have designed their apps around the channels requirement, and have started using it for their benefit. But as most developers are still supporting pre-8.0 devices, they also have to add preferences and logic to control the notifications for the older devices.
 
-This is where notification-channel-compat appears. You use the same coding as for the Android 8.0 channel classes, with minimal change, to support channels in all devices. In Android 8.0 and later, it uses the built-in channel classes, and in pre- Android 8.0, it mimics them.
+This is where notification-channel-compat appears. You use the same required coding as for the Android 8.0 built-in channel classes, with minimal change, to support channels in all devices. In Android 8.0 and later, it uses the built-in channel classes, and in pre-Android 8.0, it mimics them. Thus you have channels in all Android 4.0+ devices.
 
 The following Screenshots are from an Android 7.0 device. As you can see, it mimics the system channel settings.
 
@@ -109,7 +110,7 @@ See also the list of [contributors](https://github.com/lionscribe/notification-c
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
 
-[ExampleMain]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_example_main.png>
-[ExampleMenu]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_example_menu.png>
-[ChannelAll]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_channel_all.png>
-[ChannelSingle]: <https://github.com/lionscribe/notification-channel-compat/blob/master/screenshots/screenshot_channel_single.png>
+[ExampleMain]: <https://raw.githubusercontent.com/lionscribe/notification-channel-compat/master/screenshots/screenshot_example_main.png>
+[ExampleMenu]: <https://raw.githubusercontent.com/lionscribe/notification-channel-compat/master/screenshots/screenshot_example_menu.png>
+[ChannelAll]: <https://raw.githubusercontent.com/lionscribe/notification-channel-compat/master/screenshots/screenshot_channel_all.png>
+[ChannelSingle]: <https://raw.githubusercontent.com/lionscribe/notification-channel-compat/master/screenshots/screenshot_channel_single.png>
