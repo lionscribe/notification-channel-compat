@@ -18,7 +18,7 @@ This is where notification-channel-compat appears. You use the same coding as fo
 #### Add gradle dependecy
 ```
 dependencies {
-  compile 'com.lionscribe.open.notification-channel-compat:{latest_release}'
+   compile 'com.lionscribe.open:notification-channel-compat:1.0.+'
 }
 ```
 ### Step 2:
