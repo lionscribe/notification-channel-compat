@@ -584,7 +584,7 @@ public final class NotificationChannelCompat implements Parcelable {
      */
     public boolean isEnabled() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            return _oreoNotificationChannel.getImportance() == NotificationManager.IMPORTANCE_NONE;
+            return _oreoNotificationChannel.getImportance() != NotificationManager.IMPORTANCE_NONE;
         }
         return mChannelEnabled;
     }
