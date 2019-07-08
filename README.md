@@ -1,6 +1,5 @@
-
-
 # notification-channel-compat
+[ ![Download](https://api.bintray.com/packages/lionscribe/open/notification-channel-compat/images/download.svg) ](https://bintray.com/lionscribe/open/notification-channel-compat/_latestVersion) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-notification--channel--compat-green.svg?style=flat )]( https://android-arsenal.com/details/1/7741 )
 
 **notification-channel-compat** adds Notification Channel support to pre-Oreo Android devices
 
@@ -23,7 +22,7 @@ The following Screenshots are from an Android 7.0 device. As you can see, it mim
 #### Add gradle dependecy
 ```
 dependencies {
-       implementation 'com.lionscribe.open:notification-channel-compat:1.0.1'
+       implementation 'com.lionscribe.open:notification-channel-compat:1.0.2'
 }
 ```
 ### Step 2:

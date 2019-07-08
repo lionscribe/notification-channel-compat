@@ -352,9 +352,17 @@ public final class NotificationChannelManagerHelper {
      * The channel group must belong to your package, or null will be returned.
      */
     public NotificationChannelGroupCompat getNotificationChannelGroup(String channelGroupId) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             return new NotificationChannelGroupCompat(_manager.getNotificationChannelGroup(channelGroupId));
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            for (NotificationChannelGroup group : _manager.getNotificationChannelGroups()) {
+                if (group.getId().equals(channelGroupId)) {
+                    return new NotificationChannelGroupCompat(group);
+                }
+            }
+            return null; // not found
         }
+
         if (!_groupIds.contains(channelGroupId))
             return null;
 

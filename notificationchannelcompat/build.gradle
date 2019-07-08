@@ -25,7 +25,7 @@ ext {
     siteUrl = 'https://github.com/lionscribe/notification-channel-compat'
     gitUrl = 'https://github.com/lionscribe/notification-channel-compat.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'lionscribe'
     developerName = 'Lionscribe Software LLC'

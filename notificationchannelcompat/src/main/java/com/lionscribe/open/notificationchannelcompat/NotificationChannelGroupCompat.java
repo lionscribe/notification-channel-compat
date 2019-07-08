@@ -160,8 +160,11 @@ public final class NotificationChannelGroupCompat implements Parcelable {
      * Returns the user visible description of this group.
      */
     public String getDescription() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             return _notificationChannelGroup.getDescription();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // Not supported
+            return null;
         }
         return mDescription;
     }
@@ -173,8 +176,11 @@ public final class NotificationChannelGroupCompat implements Parcelable {
      * long.
      */
     public void setDescription(String description) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             _notificationChannelGroup.setDescription(description);
+            return;
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // not supported
             return;
         }
         mDescription = getTrimmedString(description);
@@ -210,8 +216,10 @@ public final class NotificationChannelGroupCompat implements Parcelable {
      * {@link NotificationChannel#getImportance()}.
      */
     public boolean isBlocked() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             return _notificationChannelGroup.isBlocked();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return false; // not an option
         }
         return !mEnabled;
     }
