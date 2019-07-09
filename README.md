@@ -22,7 +22,7 @@ The following Screenshots are from an Android 7.0 device. As you can see, it mim
 #### Add gradle dependecy
 ```
 dependencies {
-       implementation 'com.lionscribe.open:notification-channel-compat:1.0.2'
+       implementation 'com.lionscribe.open:notification-channel-compat:1.0.3'
 }
 ```
 ### Step 2:
