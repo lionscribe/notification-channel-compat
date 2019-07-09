@@ -216,12 +216,7 @@ public final class NotificationChannelGroupCompat implements Parcelable {
      * {@link NotificationChannel#getImportance()}.
      */
     public boolean isBlocked() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            return _notificationChannelGroup.isBlocked();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            return false; // not an option
-        }
-        return !mEnabled;
+        return !isEnabled();
     }
 
     /**
@@ -231,8 +226,10 @@ public final class NotificationChannelGroupCompat implements Parcelable {
      * {@link NotificationChannel#getImportance()}.
      */
     public boolean isEnabled() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             return !_notificationChannelGroup.isBlocked();
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return true; // not an option.
         }
         return mEnabled;
     }
