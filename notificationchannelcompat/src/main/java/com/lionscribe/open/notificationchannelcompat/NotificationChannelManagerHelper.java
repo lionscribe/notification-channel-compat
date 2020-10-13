@@ -224,7 +224,7 @@ public final class NotificationChannelManagerHelper {
         editor.putInt(makeKey(PREF_KEY_CHANNEL_LOCKSCREENVISIBILITY, channelId), channel.getLockscreenVisibility());
         editor.putBoolean(makeKey(PREF_KEY_CHANNEL_LIGHTS, channelId), channel.shouldShowLights());
         editor.putInt(makeKey(PREF_KEY_CHANNEL_LIGHTCOLOR, channelId), channel.getLightColor());
-        editor.putString(makeKey(PREF_KEY_CHANNEL_SOUND, channelId), channel.getSound().toString());
+        editor.putString(makeKey(PREF_KEY_CHANNEL_SOUND, channelId), channel.getSound() == null ? null : channel.getSound().toString());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && _prefs.contains(makeKey(PREF_KEY_CHANNEL_AUDIOATTRIBUTESCONTENTTYPE, channelId))) {
             editor.putInt(makeKey(PREF_KEY_CHANNEL_AUDIOATTRIBUTESCONTENTTYPE, channelId), channel.getAudioAttributes().getContentType());
             editor.putInt(makeKey(PREF_KEY_CHANNEL_AUDIOATTRIBUTESFLAGS, channelId), channel.getAudioAttributes().getFlags());
