@@ -203,10 +203,12 @@ public final class NotificationChannelManagerHelper {
         }
         String channelId = channel.getId();
         if (_channelIds.contains(channelId)) {
-            if (!channel.getName().equals(prefsGetString(PREF_KEY_CHANNEL_NAME, channelId, "Error"))) {
+            CharSequence name = channel.getName();
+            if (name != null && !name.equals(prefsGetString(PREF_KEY_CHANNEL_NAME, channelId, "Error"))) {
                 _prefs.edit().putString(makeKey(PREF_KEY_CHANNEL_NAME, channelId), channel.getName().toString()).apply();
             }
-            if (!channel.getDescription().equals(prefsGetString(PREF_KEY_CHANNEL_DESCRIPTION, channelId, "Error"))) {
+            CharSequence desc = channel.getDescription();
+            if (desc != null && !desc.equals(prefsGetString(PREF_KEY_CHANNEL_DESCRIPTION, channelId, "Error"))) {
                 _prefs.edit().putString(makeKey(PREF_KEY_CHANNEL_DESCRIPTION, channelId), channel.getDescription()).apply();
             }
             // We do not change anything else once set
