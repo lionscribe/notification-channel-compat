@@ -22,9 +22,10 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.provider.Settings;
-import android.support.v4.app.Fragment;
-import android.support.v7.preference.Preference;
 import android.text.TextUtils;
+
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
 
 public class SoundTonePreference extends Preference implements Preference.OnPreferenceChangeListener {
     public static final int REQUEST_CODE_ALERT_RINGTONE = 1371;

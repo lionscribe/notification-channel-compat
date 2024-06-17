@@ -27,15 +27,16 @@ import android.content.SharedPreferences;
 import android.media.AudioAttributes;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.util.ArraySet;
 import android.text.TextUtils;
+import android.util.ArraySet;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationManagerCompat;
 
 public final class NotificationChannelManagerHelper {
     public final static String SHARED_PREFERENCE_NAME = "com.lionscribe.open.notificationchannelcompat_channel_prefs";
@@ -224,7 +225,7 @@ public final class NotificationChannelManagerHelper {
         editor.putInt(makeKey(PREF_KEY_CHANNEL_LOCKSCREENVISIBILITY, channelId), channel.getLockscreenVisibility());
         editor.putBoolean(makeKey(PREF_KEY_CHANNEL_LIGHTS, channelId), channel.shouldShowLights());
         editor.putInt(makeKey(PREF_KEY_CHANNEL_LIGHTCOLOR, channelId), channel.getLightColor());
-        editor.putString(makeKey(PREF_KEY_CHANNEL_SOUND, channelId), channel.getSound().toString());
+        editor.putString(makeKey(PREF_KEY_CHANNEL_SOUND, channelId), channel.getSound() == null ? null : channel.getSound().toString());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && _prefs.contains(makeKey(PREF_KEY_CHANNEL_AUDIOATTRIBUTESCONTENTTYPE, channelId))) {
             editor.putInt(makeKey(PREF_KEY_CHANNEL_AUDIOATTRIBUTESCONTENTTYPE, channelId), channel.getAudioAttributes().getContentType());
             editor.putInt(makeKey(PREF_KEY_CHANNEL_AUDIOATTRIBUTESFLAGS, channelId), channel.getAudioAttributes().getFlags());

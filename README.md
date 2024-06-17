@@ -9,7 +9,7 @@ This is for the good and the bad. The bad; the user now has full control of the 
 
 As more and more users are upgrading to Android 8.0, developers have designed their apps around the channels requirement, and have started using it for their benefit. But as most developers are still supporting pre-8.0 devices, they also have to add preferences and logic to control the notifications for the older devices.
 
-This is where notification-channel-compat appears. You use the same required coding as for the Android 8.0 built-in channel classes, with minimal change, to support channels in all devices. In Android 8.0 and later, it uses the built-in channel classes, and in pre-Android 8.0, it mimics them. Thus you have channels in all Android 4.0+ devices.
+This is where notification-channel-compat appears. You use the same required coding as for the Android 8.0 built-in channel classes, with minimal change, to support channels in all devices. In Android 8.0 and later, it uses the built-in channel classes, and in pre-Android 8.0, it mimics them. Thus you have channels in all Android 5.0+ devices.
 
 The following Screenshots are from an Android 7.0 device. As you can see, it mimics the system channel settings.
 
@@ -21,8 +21,14 @@ The following Screenshots are from an Android 7.0 device. As you can see, it mim
 ### Step 1:
 #### Add gradle dependecy
 ```
+repositories {
+    google()
+	...
+    maven { url "https://jitpack.io" }
+ }
+ 
 dependencies {
-       implementation 'com.lionscribe.open:notification-channel-compat:1.0.3'
+       implementation 'com.lionscribe.open:notification-channel-compat:1.1.0'
 }
 ```
 ### Step 2:

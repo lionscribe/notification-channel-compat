@@ -20,13 +20,14 @@
 package com.lionscribe.open.notificationchannelcompat.ui.widgets;
 
 import android.content.Context;
-import android.support.v7.preference.PreferenceViewHolder;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 
 import com.lionscribe.open.notificationchannelcompat.R;
+
+import androidx.preference.PreferenceViewHolder;
 
 
 /**

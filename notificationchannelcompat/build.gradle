@@ -1,50 +1,38 @@
 buildscript {
     repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
+        google()
     }
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+plugins {
+    id 'com.android.library'
+    id 'maven-publish'
+}
 
 ext {
-    bintrayRepo = 'open'
-    bintrayName = 'notification-channel-compat'
-
-    publishedGroupId = 'com.lionscribe.open'
-    libraryName = 'NotificationChannelCompat'
-    artifact = 'notification-channel-compat'
-
-    libraryDescription = 'This library adds Android Notification Channels Ability to Pre-Oreo Devices'
-
-    siteUrl = 'https://github.com/lionscribe/notification-channel-compat'
-    gitUrl = 'https://github.com/lionscribe/notification-channel-compat.git'
-
-    libraryVersion = '1.0.3'
-
-    developerId = 'lionscribe'
-    developerName = 'Lionscribe Software LLC'
-    developerEmail = ''
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+    isSnapShot = false
+    libraryVersion = '1.1.0'
+    if (isSnapShot)
+        libraryVersion += '-SNAPSHOT'
 }
 
 
 android {
-    compileSdkVersion 28
+    compileSdk  34
+    namespace 'com.lionscribe.open.notificationchannelcompat'
 
-
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == 'org.jetbrains.kotlin') {
+                details.useVersion "1.8.22"
+            }
+        }
+    }
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 28
-        versionCode 1
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 2
         versionName libraryVersion
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -58,98 +46,62 @@ android {
         }
     }
 
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            //withJavadocJar()
+        }
+    }
 }
 
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:preference-v7:28.0.0'
-    implementation "com.android.support:support-annotations:28.0.0"
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    testImplementation 'junit:junit:4.12'
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "androidx.preference:preference:1.2.1"
+    implementation "androidx.annotation:annotation:1.8.0"
+    testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-}
-
-group = publishedGroupId
-version = libraryVersion
-
-install {
-    repositories.mavenInstaller {
-        pom.project {
-            packaging 'aar'
-            groupId publishedGroupId
-            artifactId artifact
-
-            name libraryName
-            description libraryDescription
-            url siteUrl
-
-            licenses {
-                license {
-                    name licenseName
-                    url licenseUrl
-                }
-            }
-            developers {
-                developer {
-                    id developerId
-                    name developerName
-                    email developerEmail
-                }
-            }
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-                url siteUrl
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from android.sourceSets.main.java.srcDirs
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives javadocJar
-    archives sourcesJar
 }
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-    pkg {
-        repo = bintrayRepo
-        name = bintrayName
-        desc = libraryDescription
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = allLicenses
-        dryRun = false
-        publish = true
-        override = false
-        publicDownloadNumbers = true
-        version {
-            desc = libraryDescription
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.lionscribe.open.notificationchannelcompat'
+            artifactId = 'notificationchannelcompat'
+            version = libraryVersion
+            afterEvaluate {
+                from components.release
+            }
+            pom {
+                name = 'notificationchannelcompat'
+                description = 'This library adds Android Notification Channels Ability to Pre-Oreo Devices'
+                url = 'https://github.com/lionscribe/notification-channel-compat'
+                licenses {
+                    license {
+                        name = 'The Apache Software License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'lionscribe'
+                        email = 'lionscribe@lionscribe.com'
+                        organization = 'Lionscribe Software LLC'
+                        organizationUrl = 'http://lionscribe.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/lionscribe/notification-channel-compat.git'
+                    developerConnection = 'scm:git:ssh://github.com:lionscribe/notification-channel-compat.git'
+                    url = 'https://github.com/lionscribe/notification-channel-compat/tree/master'
+                }
+            }
         }
     }
 }

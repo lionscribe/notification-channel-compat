@@ -23,20 +23,21 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.provider.Settings;
-import android.support.v14.preference.SwitchPreference;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.PreferenceFragmentCompat;
-import android.support.v7.preference.PreferenceManager;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.view.ContextThemeWrapper;
 import android.text.TextUtils;
+import android.view.ContextThemeWrapper;
 
 import com.lionscribe.open.notificationchannelcompat.NotificationChannelCompat;
 import com.lionscribe.open.notificationchannelcompat.NotificationChannelManagerHelper;
 import com.lionscribe.open.notificationchannelcompat.R;
 import com.lionscribe.open.notificationchannelcompat.ui.widgets.SoundTonePreference;
+
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 public class PreferencesChannelsSubFragment extends PreferenceFragmentCompat {
     static final String FRAGMENT_TAG = "ChannelsSubFragment";
@@ -73,7 +74,7 @@ public class PreferencesChannelsSubFragment extends PreferenceFragmentCompat {
         PreferenceScreen preferenceScreen = preferenceManager.createPreferenceScreen(activityContext);
         setPreferenceScreen(preferenceScreen);
 
-        ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(activityContext, R.style.PreferenceThemeOverlay);
+        ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(activityContext, androidx.preference.R.style.PreferenceThemeOverlay);
 
         // We instance each Preference using our ContextThemeWrapper object
         PreferenceCategory preferenceCategory = new PreferenceCategory(contextThemeWrapper);

@@ -31,16 +31,17 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.Settings;
-import android.support.annotation.CheckResult;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+
+import androidx.annotation.CheckResult;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 /**
  * A representation of settings that apply to a collection of similarly themed notifications.
@@ -174,10 +175,10 @@ public final class NotificationChannelCompat implements Parcelable {
             return false;
         }
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (!channelId.equals(notif.getChannelId())) {
                 try {
-                    Field f1 = notif.getClass().getSuperclass().getDeclaredField("mChannelId");
+                    Field f1 = notif.getClass().getDeclaredField("mChannelId");
                     f1.setAccessible(true);
                     f1.set(notif, channelId);
                 } catch (Exception e) {
@@ -188,7 +189,6 @@ public final class NotificationChannelCompat implements Parcelable {
             }
             return true;
         }
-
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationChannelManagerHelper notificationManagerHelper = new NotificationChannelManagerHelper(context, notificationManager);

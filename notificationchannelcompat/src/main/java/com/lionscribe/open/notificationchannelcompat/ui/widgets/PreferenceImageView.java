@@ -24,10 +24,12 @@ import android.util.AttributeSet;
 
 import com.lionscribe.open.notificationchannelcompat.R;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 /**
  * Extension of ImageView that correctly applies maxWidth and maxHeight.
  */
-public class PreferenceImageView extends android.support.v7.widget.AppCompatImageView {
+public class PreferenceImageView extends AppCompatImageView {
     public PreferenceImageView(Context context) {
         super(context);
     }
