@@ -28,7 +28,7 @@ repositories {
  }
  
 dependencies {
-       implementation 'com.lionscribe.open:notification-channel-compat:1.1.0'
+       implementation 'com.github.lionscribe:notification-channel-compat:1.1.0'
 }
 ```
 ### Step 2:
